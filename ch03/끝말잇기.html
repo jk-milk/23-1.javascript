@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>끝말잇기</title>
+</head>
+<body>
+    <div><span id="order">1</span>번째 참가자</div>
+    <div>제시어: <span id="word"></span></div>
+    <input type="text">
+    <button>입력</button>
+    <script>
+        // 자바스크립트 코드 작성
+        // const nOfPlayer = prompt('몇 명이 참가하나요?'); //실행의 결과는 string type
+        // 입력값을 number type으로 변경하기
+        // 1. parseInt(str)
+        //   - const nOfPlayer = parseInt(prompt('몇 명이 참가하나요?'));
+        // 2. Number(str)
+        //   - const nOfPlayer = Number(prompt('몇 명이 참가하나요?'));
+        const nOfPlayer = Number(prompt('몇 명이 참가하나요?'));
+
+        console.log('typeof :', typeof nOfPlayer);
+        alert('typeof : '+(typeof nOfPlayer));
+        const test = confirm('시작?');
+    </script>
+</body>
+</html>
