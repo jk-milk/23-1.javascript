@@ -4,20 +4,61 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>숫자야구</title>
 </head>
 <body>
   <form action="" id="form">
     <input type="text" id="input">
     <button>확인</button>
   </form>
-  <div id="'logs">
-
-  </div>
+  <div id="'logs"></div>
   <script>
     const $input = document.querySelector('#input');
     const $form = document.querySelector('#form');
     const $logs = document.querySelector('#logs');
+    // const numbers = [];
+    // for(let n = 1; n<=9; n+=1) {
+    //   numbers.push(n);
+    // }
+
+    const numbers = Array(9).fill().map((v,i)=>i+1); //value,index
+    const answer = [];
+
+    // console.log(numbers);
+
+    const getRNum = (n,m)=> Math.floor(Math.random() * (m-n+1))+n;
+
+    for(let n=0; n<4; n++){
+      // const index = getRNum(0,8);  // undefined 생성 가능
+      const index = getRNum(0,numbers.length-1);
+      answer.push(numbers[index]);
+      numbers.splice(index,1); // 배열에서 index위치에 1개를 삭제
+    }
+
+    const tries = []; // 시도한 입력값 저장
+    const checkInput = (input) => {
+      if(input.length !==4) { // 길이 4개의 숫자를 문자열로 입력하지 않은 경우
+        return alert('4자리 숫자를 입력해 주세요.');
+      }
+      if((new Set(input)).size !==4) { // 4개의 숫자 중에 중복된 숫자가 있는 경우
+        return alert('중복되지 않게 입력해 주세요.');
+      }
+      if(tries.includes(input)) { // 이미 시도한 입력인 경우
+        return alert('이미 시도한 값입니다.');
+      }
+      return true;
+    };
+
+    $form.addEventListener(
+      'submit', // enter키 눌러 요청 처리 가능
+      (event)=>{
+        event.preventDefault(); // 디폴트 처리를 중지
+        // submit의 디폴트 처리: 화면 새로고침
+        
+      }
+    )
+
+
   </script>
   
 </body>
