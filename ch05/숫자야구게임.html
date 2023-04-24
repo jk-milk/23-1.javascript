@@ -22,10 +22,11 @@
     // }
 
     const numbers = Array(9).fill().map((v,i)=>i+1); //value,index
+    // console.log(numbers); // numbers - [1,2,3,4,5,6,7,8,9]
     const answer = [];
 
-    // console.log(numbers);
-
+    
+    // n이상 m이하
     const getRNum = (n,m)=> Math.floor(Math.random() * (m-n+1))+n;
 
     for(let n=0; n<4; n++){
@@ -53,10 +54,28 @@
       'submit', // enter키 눌러 요청 처리 가능
       (event)=>{
         event.preventDefault(); // 디폴트 처리를 중지
-        // submit의 디폴트 처리: 화면 새로고침
-        
+        // submit의 디폴트 처리: action속성의 주소로 요청을 처리하고 화면 새로고침: 화면 초기화
+        const value = $input.value;
+        $input.value = '';
+        const valid = checkInput(value);
+        if(!valid) return;
+        console.log(answer);
+        if(answer.join('') === value) {
+          $logs.textContent = '홈런입니다.';
+          return;
+        }
+        if(tries.length > 10) {
+          const msg = document.createTextNode(`패배! 정답: ${answer.join('')}`);
+          $logs.appendChild(msg);
+          return;
+        }
+        tries.push(value);
       }
+
+      
     )
+
+    
 
 
   </script>

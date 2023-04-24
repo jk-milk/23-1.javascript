@@ -22,7 +22,36 @@
 
     const onClickButton = () => {
       // 제시어가 비어 있는가?
-      if (!word) { // $word가 비어 있으면 undefined == false -> !$word == true 제시어가 비어 있는 경우
+      // if (!word) { // $word가 비어 있으면 undefined == false -> !$word == true 제시어가 비어 있는 경우
+      //   word = newWord; // 입력한 단어가 제시어가 된다.
+      //   $word.textContent = word; // 화면에 제시어 표시
+      //   const order = Number($order.textContent);
+      //   if (order + 1 > numberOfPlayer) {
+      //     $order.textContent = 1;
+      //   } else {
+      //     $order.textContent = order + 1;
+      //   }
+      //   $input.value = '';
+      //   $input.focus;
+      // } else { // 제시어가 비어 있지 않은 경우
+      //   if (word[word.length-1] == newWord[0]) { // 올바른 단어인 경우
+      //     word = newWord; // 입력한 단어가 제시어가 된다.
+      //     $word.textContent = word; // 화면에 제시어 표시
+      //     const order = Number($order.textContent);
+      //     if (order + 1 > numberOfPlayer) {
+      //       $order.textContent = 1;
+      //     } else {
+      //       $order.textContent = order + 1;
+      //     }
+      //     $input.value = '';
+      //     $input.focus;
+      //   } else { // 올바르지 않은 단어인 경우
+      //     alert('올바르지 않은 단어입니다!')
+      //     $input.value = '';
+      //     $input.focus;
+      //   }
+      // }
+      if (!word || word[word.length-1] == newWord[0]) { // 제시어가 비어 있거나 입력한 단어가 올바른 경우
         word = newWord; // 입력한 단어가 제시어가 된다.
         $word.textContent = word; // 화면에 제시어 표시
         const order = Number($order.textContent);
@@ -33,36 +62,20 @@
         }
         $input.value = '';
         $input.focus;
-      } else { // 제시어가 비어 있지 않은 경우
-        if (word[word.length-1] == newWord[0]) { // 올바른 단어인 경우
-          word = newWord; // 입력한 단어가 제시어가 된다.
-          $word.textContent = word; // 화면에 제시어 표시
-          const order = Number($order.textContent);
-          if (order + 1 > numberOfPlayer) {
-            $order.textContent = 1;
-          } else {
-            $order.textContent = order + 1;
-          }
-          $input.value = '';
-          $input.focus;
-        } else { // 올바르지 않은 단어인 경우
-          alert('올바르지 않은 단어입니다!')
-          $input.value = '';
-          $input.focus;
-        }
+      } else { // 입력한 단어가 올바르지 않은 경우
+        alert('올바르지 않은 단어입니다!')
+        $input.value = '';
+        $input.focus;
       }
     };
+
     const onInput = (event) => {
       newWord = event.target.value; // 입력한 단어 저장
     };
 
     
     $button.addEventListener('click', onClickButton);
-
-    
     $input.addEventListener('input', onInput);
-
-    
 
   </script>
 </body>
