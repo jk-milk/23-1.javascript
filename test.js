@@ -1,1 +1,6 @@
-'문자열이 긴 경우에는 ' + '문자열을 ' + '나눈 뒤 ' + '다시 합칩니다.';
+// dfdfd
+/* ReadableStreamDefaultReader
+dfdf
+dfdf
+dfhj43
+ */

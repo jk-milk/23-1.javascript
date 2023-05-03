@@ -48,16 +48,19 @@
     const $operator = document.querySelector('#operator');
     const $result = document.querySelector('#result');
     const onClickNumber = (number)=>()=>{
-      if (operator) {
-        if (!numTwo) { // numTwo가 비어 있을 때
-          $result.value = '';
-        }
-        numTwo += number;
-      } else {
+      if (!operator) { // 연산자가 비어 있는 경우
         numOne += number;
+        $result.value += number;
+        return;
+      } 
+      // 이 아래로는 연산자가 있을 때만 실행됨
+      if (!numTwo) { // numTwo가 비어 있을 때
+        $result.value = '';
       }
+      numTwo += number;
       $result.value += number;
     };
+
     
     document.querySelector('#num-0').addEventListener('click', onClickNumber('0'));
     document.querySelector('#num-1').addEventListener('click', onClickNumber('1'));
@@ -83,8 +86,35 @@
     document.querySelector('#minus').addEventListener('click', onClickOperator('-'));
     document.querySelector('#divide').addEventListener('click', onClickOperator('/'));
     document.querySelector('#multiply').addEventListener('click', onClickOperator('*'));
-    document.querySelector('#calculate').addEventListener('click', ()=>{});
-    document.querySelector('#clear').addEventListener('click', ()=>{});
+    document.querySelector('#calculate').addEventListener('click', ()=>{
+      if (numTwo) {
+        switch (operator) {
+          case '+':
+            $result.value = parseInt(numOne) + parseInt(numTwo);
+            break;
+          case '-':
+            $result.value = numOne - numTwo;
+            break;
+          case '*':
+            $result.value = numOne * numTwo;
+            break;
+          case '/':
+            $result.value = numOne / numTwo;
+            break;
+          default:
+            break;
+        }
+      } else {
+        alert('숫자를 먼저 입력하세요.')
+      }
+    });
+    document.querySelector('#clear').addEventListener('click', ()=>{
+      numOne = '';
+      operator = '';
+      numTwo = '';
+      $operator.value = '';
+      $result.value = '';
+    });
   </script>
 </body>
 </html>
