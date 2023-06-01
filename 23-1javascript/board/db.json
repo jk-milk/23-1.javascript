@@ -1,0 +1,38 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "writer": "typicode",
+      "content": "test content입니다.",
+      "createdAt": "2023.05.11 16:20:32",
+      "hit": 1
+    },
+    {
+      "id": 2,
+      "title": "json-server1",
+      "writer": "typicode1",
+      "content": "dfdfdf잘봐라 content입니다.",
+      "createdAt": "2023.05.11 17:25:32",
+      "hit": 1
+    },
+    {
+      "title": "테스트",
+      "writer": "일본아이티반",
+      "content": "화이팅, 화이토!",
+      "createdAt": "2023-05-11T08:50:41.719Z",
+      "hit": 0,
+      "id": 3
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
